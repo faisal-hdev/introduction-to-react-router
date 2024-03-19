@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
+import "./index.css";
+import App from "./App.jsx";
 import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import About from "./components/About/About.jsx";
 import Contact from "./components/Contact/Contact.jsx";
+import Users from "./components/Users/Users.jsx";
+import UserDetails from "./components/UserDetails/UserDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,17 @@ const router = createBrowserRouter([
     children: [
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
+      {
+        path: "/users",
+        loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
+        element: <Users />,
+      },
+      {
+        path: "/user/:userId",
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        element: <UserDetails />,
+      },
     ],
   },
 ]);
