@@ -3,3 +3,8 @@
   gap: 20px;
   grid-template-columns: repeat(2, 1fr);
 }
+
+nav a.active {
+  color: peachpuff;
+  text-decoration: underline;
+}

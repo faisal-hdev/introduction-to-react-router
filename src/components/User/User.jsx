@@ -6,7 +6,7 @@ const User = ({ user }) => {
   const { name, email, phone, id } = user;
 
   const userStyle = {
-    border: "1px solid yellow",
+    border: "1px solid red",
     padding: "15px",
     borderRadius: "10px",
   };
